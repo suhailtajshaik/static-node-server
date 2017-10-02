@@ -6,8 +6,9 @@ let config = require('../../config.js');
 
 router.get('/', (req, res) => {
   console.log('i am Logedin');
-  let welcome = { message: 'Welcome to the coolest API on earth!' };
-  res.status(200).json(welcome);
+  let test = [];
+  test.push({ "mock": config.mock })
+  res.status(200).json(test);
 });
 
 module.exports = router;

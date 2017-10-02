@@ -4,8 +4,10 @@ let path = require('path');
 
 let config = require('./config.js');
 let routting = (app) => {
-
+  app.use('/api/', require('./apis/authenticate/index'));
   app.use('/api/home', require('./apis/home/index'));
+  app.use('/api/users', require('./apis/users/index'));
+
 
   app.route('/version').get((req, res) => {
     let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;

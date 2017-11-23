@@ -9,18 +9,7 @@ const app = express();
 app.use(express.static(path.join('..', 'client')));
 require('./routes')(app);
 
-// catch 404 and forward to error handler.
-app.use(function (req, res, next) {
-	var err = new Error('Not Found');
-	err.status = 404;
-	next(err);
-});
 
-// If our applicatione encounters an error, we'll display the error and stacktrace accordingly.
-app.use(function (err, req, res, next) {
-	res.status(err.status || 500);
-	res.send(err);
-});
 
 const server = app.listen(config.port, function () {
 	var port = server.address().port;

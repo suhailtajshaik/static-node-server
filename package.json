@@ -4,8 +4,9 @@
   "description": "static node server",
   "main": "index.js",
   "scripts": {
-    "start": "node server/index.js --harmony",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server/index.js",
+    "docker:build": "docker build -t static-node-server .",
+    "docker:run": "docker run --name static-node-server -d -p 3000:3000 static-node-server"
   },
   "keywords": [
     "node",
@@ -17,6 +18,6 @@
   "author": "Suhail Taj Shaik",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.15.0"
+    "express": "^4.17.1"
   }
 }

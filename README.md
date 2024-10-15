@@ -5,14 +5,6 @@ Server-Client architecture, static express server.
 
 #### Using npm
 ```bash
-npm install
-npm start
-```
-
-Or
-
-#### Using yarn
-```bash
-yarn install
-yarn start
+pnpm install
+pnpm start
 ```

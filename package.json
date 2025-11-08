@@ -16,8 +16,13 @@
     "server"
   ],
   "author": "Suhail Taj Shaik",
-  "license": "ISC",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.19.2",
+    "helmet": "^7.1.0",
+    "cors": "^2.8.5"
   }
 }

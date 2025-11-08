@@ -2,11 +2,15 @@
 
 const express = require('express');
 const router = express.Router();
-let config = require('../../config.js');
+const config = require('../../config.js');
 
+/**
+ * GET /api/home
+ * Returns welcome message
+ */
 router.get('/', (req, res) => {
-  console.log('i am Logedin');
-  let welcome = { message: 'Welcome to the coolest API on earth!' };
+  console.log('Home route accessed successfully');
+  const welcome = { message: 'Welcome to the coolest API on earth!' };
   res.status(200).json(welcome);
 });
 

@@ -1,19 +1,22 @@
 'use strict';
 
-let path = require('path');
+const path = require('path');
 
-let config = require('./config.js');
-let routting = (app) => {
+const config = require('./config.js');
+
+/**
+ * Configures application routes and middleware
+ * @param {express.Application} app - Express application instance
+ */
+const routing = (app) => {
   app.use('/api/', require('./apis/authenticate/index'));
   app.use('/api/home', require('./apis/home/index'));
   app.use('/api/users', require('./apis/users/index'));
 
 
   app.route('/version').get((req, res) => {
-    let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-    let pkg = require("../package.json");
-    let os = require('os');
-    let data = {
+    const pkg = require("../package.json");
+    const data = {
       name: pkg.name,
       version: pkg.version,
       port: config.port,
@@ -30,4 +33,4 @@ let routting = (app) => {
   });
 };
 
-module.exports = routting;
+module.exports = routing;

@@ -2,22 +2,33 @@
 
 const express = require('express');
 const router = express.Router();
-let config = require('../../config.js');
+const config = require('../../config.js');
 
-// We are going to do the same thing for the remaining routes.
+/**
+ * GET /login
+ * Display login page
+ */
 router.get('/login', function (req, res) {
     res.send('You are on the login page');
 });
 
+/**
+ * GET /logout
+ * Display logout page
+ */
 router.get('/logout', function (req, res) {
     res.send('You are on the logout page');
 });
 
+/**
+ * GET /
+ * Get authentication status and environment information
+ */
 router.get('/', (req, res) => {
-    console.log("I'm authenticate");
-    let test = [];
-    test.push({ "Env": config.env })
-    res.status(200).json(test);
+    console.log("Authenticated successfully");
+    const envInfo = [];
+    envInfo.push({ "Env": config.env })
+    res.status(200).json(envInfo);
 });
 
 module.exports = router;

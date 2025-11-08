@@ -2,13 +2,17 @@
 
 const express = require('express');
 const router = express.Router();
-let config = require('../../config.js');
+const config = require('../../config.js');
 
+/**
+ * GET /api/users
+ * Returns user configuration information
+ */
 router.get('/', (req, res) => {
-  console.log('i am Logedin');
-  let test = [];
-  test.push({ "mock": config.mock })
-  res.status(200).json(test);
+  console.log('Users route accessed successfully');
+  const userConfig = [];
+  userConfig.push({ "mock": config.mock })
+  res.status(200).json(userConfig);
 });
 
 module.exports = router;

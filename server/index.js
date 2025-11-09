@@ -6,6 +6,9 @@ const cors = require('cors');
 const path = require('path');
 const config = require('./config.js');
 
+/**
+ * Initialize Express application
+ */
 const app = express();
 
 // Security middleware
@@ -15,14 +18,18 @@ app.use(cors());
 app.use(express.static(path.join('..', 'client')));
 require('./routes')(app);
 
-
-
+/**
+ * Start the Express server
+ */
 const server = app.listen(config.port, function () {
-	var port = server.address().port;
+	const port = server.address().port;
 	console.log('\nExpress server listening on port ' + port + ', in ' + config.env + ' mode');
 	console.log("open http://localhost:" + port);
 })
 
+/**
+ * Handle server errors
+ */
 server.on('error', function (e) {
 	if (e.code === 'EADDRINUSE') {
 		console.log('ADDRESS IN USE');
